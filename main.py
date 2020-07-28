@@ -8,7 +8,7 @@ hello_id =
 
 server_id = int(server_id)
 entry_id = int(entry_id)
-hello_id = (hello_id)
+hello_id = int(hello_id)
 client = discord.Client()
 
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
