@@ -15,14 +15,14 @@ client = discord.Client()
 
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
 
-# @client.event
-# async def on_ready():
-    #print(client.user.id)
-    #print('It is ready')
-    #channel = client.get_channel(hello_id)
-    #embed = discord.Embed(title="ただ今起動しました",description="動作していない場合は管理者に問い合わせてください")
-    #embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
-    #await channel.send(embed=embed)
+@client.event
+async def on_ready():
+    print(client.user.id)
+    print('It is ready')
+    channel = client.get_channel(hello_id)
+    embed = discord.Embed(title="ただ今起動しました",description="動作していない場合は管理者に問い合わせてください")
+    embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
+    await channel.send(embed=embed)
     
 @client.event
 async def on_member_join(member):
@@ -41,9 +41,14 @@ async def on_message(message):
     if message.author.bot:
         return
     if message.content == '*cot.help!':
-        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 *cot.help! 機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
+        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 `*cot.help!`\nボットについての情報を見る`*cot.about!`\n現在時刻を表示[Ruby]`*cot.daemon.time!`\n 機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
+        await channel.send(embed=embed)
+    if message.content == '*cot.about!':
+        embed = discord.Embed(title="CotTyanについて", description="Laminne33569がコマンド部分をPython、コマンド実行部分をRubyで書いたボットです\n仕組みとしてはコマンドを取得し\nRubyのコードを実行、出力の成形を行い、\nそれをPythonで受け取り送信しています\nデプロイ先はVPSですのでいろいろできます", color=0x00ccff)
+        embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
+        embed.set_footer(text="ちゃんと自己紹介できるもん！")
         await channel.send(embed=embed)
     if message.content == '*cot.daemon.time!':
         ruby = subprocess.check_output(['/root/.rbenv/shims/ruby', '/root/cottyan-mark2/main.rb'])
