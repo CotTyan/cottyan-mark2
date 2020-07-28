@@ -46,8 +46,8 @@ async def on_message(message):
         embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
         await channel.send(embed=embed)
     if message.content == '*cot.daemon.time!':
-        ruby = os.system(['/root/.rbenv/shims/ruby main.rb'])
-        await channel.send(ruby.decode())
+        ruby = os.system('/root/.rbenv/shims/ruby /root/cottyan-mark2/main.rb')
+        await channel.send(ruby)
     if message.guild.id == server_id:
         if message.content == "ok":
             lrn = []
