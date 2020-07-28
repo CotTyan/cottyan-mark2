@@ -36,6 +36,13 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+    if message.author.bot:
+        return
+    if message.content == '*cot.help!'
+        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 *cot.help! 機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
+        embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
+        embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
+        await channel.send(embed=embed)
     if message.guild.id == server_id:
         if message.content == "ok":
             lrn = []
@@ -48,4 +55,3 @@ async def on_message(message):
 
 if __name__ == "__main__":
     client.run(TOKEN)
-    
