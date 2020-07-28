@@ -47,7 +47,8 @@ async def on_message(message):
         await channel.send(embed=embed)
     if message.content == '*cot.daemon.time!':
         ruby = subprocess.check_output(['/root/.rbenv/shims/ruby', '/root/cottyan-mark2/main.rb'])
-        await message.channel.send(ruby[])
+        m = ruby.replace('b','')
+        await message.channel.send(m.replace('+9000\n',''))
     if message.guild.id == server_id:
         if message.content == "ok":
             lrn = []
