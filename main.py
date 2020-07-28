@@ -24,6 +24,7 @@ async def on_ready():
     
 @client.event
 async def on_member_join(member):
+    lrn = []
     for role in member.roles:
         lrn.append(role.name)
         if len(lrn) == 2:
