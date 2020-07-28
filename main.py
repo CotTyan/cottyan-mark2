@@ -2,6 +2,7 @@
 import asyncio
 import discord
 import subprocess
+import os
 TOKEN = ""
 entry_id = 736628061289578496
 server_id = 736622331178254426
@@ -45,7 +46,7 @@ async def on_message(message):
         embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
         await channel.send(embed=embed)
     if message.content == '*cot.daemon.time!':
-        ruby = subprocess.check_output(['/root/.rbenv/shims/ruby main.rb'])
+        ruby = os.system(['/root/.rbenv/shims/ruby main.rb'])
         await channel.send(ruby.decode())
     if message.guild.id == server_id:
         if message.content == "ok":
