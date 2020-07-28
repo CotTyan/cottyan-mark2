@@ -32,7 +32,7 @@ async def on_member_join(member):
         lrn.append(role.name)
         if len(lrn) == 2:
             break
-    m = "Hi!<@"+str(member.id)+">,\nPlease read <#736628061289578496> and type [ok]. \nIf you are going to to be able to do it, please introduse yourself in <#736627134604378143>\n"
+    m = "Hi!<@"+str(member.id)+">,\nPlease read <#736628061289578496> and type [ok]. \nIf you are going to to be able to do it, please introduse yourself in <#736627134604378143>.\n"
     channel = client.get_channel(737576896476348447)
     await channel.send(m)
     
@@ -58,6 +58,7 @@ async def on_message(message):
         m = ruby.decode()
         ruby = m.replace('"','')
         await message.channel.send(ruby.replace('"',''))
+
     if message.guild.id == server_id:
         if message.content == "ok":
             lrn = []
@@ -67,6 +68,9 @@ async def on_message(message):
                     return
             role = discord.utils.get(message.guild.roles, name="自己紹介してね")
             return await message.author.add_roles(role)
+            m = "<@"+str(member.id)+">,\nPlease introduse yourself in <#736627134604378143>.\n"
+            channel = client.get_channel(737576896476348447)
+            await channel.send(m)
 
 if __name__ == "__main__":
     client.run(TOKEN)
