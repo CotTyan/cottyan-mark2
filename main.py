@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import asyncio
 import discord
+import subprocess
 TOKEN = ""
 entry_id = 736628061289578496
 server_id = 736622331178254426
@@ -43,6 +44,9 @@ async def on_message(message):
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
         await channel.send(embed=embed)
+    if message.content == '*cot.lang!*ruby'
+        ruby = subprocess.check_output(['ruby main.rb'])
+        await channel.send(ruby)
     if message.guild.id == server_id:
         if message.content == "ok":
             lrn = []
