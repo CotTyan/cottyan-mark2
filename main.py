@@ -14,8 +14,8 @@ client = discord.Client()
 
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
 
-@client.event
-async def on_ready():
+# @client.event
+# async def on_ready():
     #print(client.user.id)
     #print('It is ready')
     #channel = client.get_channel(hello_id)
@@ -39,12 +39,12 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author.bot:
         return
-    if message.content == '*cot.help!'
+    if message.content == '*cot.help!':
         embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 *cot.help! 機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
         await channel.send(embed=embed)
-    if message.content == '*cot.lang!*ruby'
+    if message.content == '*cot.lang!*ruby':
         ruby = subprocess.check_output(['ruby main.rb'])
         await channel.send(ruby)
     if message.guild.id == server_id:
