@@ -81,4 +81,4 @@ async def on_message(message):
             return await channel.send(message_to)
 
 if __name__ == "__main__":
-    client.run(TOKEN)
+    client.run(os.environ['MARK1_TOKEN'])
