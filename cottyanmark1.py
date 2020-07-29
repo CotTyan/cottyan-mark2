@@ -13,17 +13,15 @@ client = discord.Client()
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
  
 @client.event
-async def on_message(command):
-    if command.author.bot:
-        return
-
+async def on_ready():
+    subprocess.check_output(['python3.8', 'run.py'])
 
 @client.event
 async def on_message(message):
     if message.author.bot:
         return
     if message.content == '*cot.help!':
-        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 `*cot.help!`\nボットについての情報を見る`*cot.about!`\n現在時刻を表示[Ruby]`*cot.daemon.time!`\n 機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
+        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 `*cot.help!`\nボットについての情報を見る`*cot.about!`\n現在時刻を表示[Ruby]`*cot.daemon.time!`\nメンテナンス通知を出す`*cot.develop!`\n※<@487393376078004225>にしか使えません\n機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
@@ -43,7 +41,11 @@ async def on_message(message):
         if message.content == "*cot.develop!":
             #a = message.author
             #print(a)
-            await message.channel.send("test")
+            embed = discord.Embed(title="ボットが止まります",description="ボットが再起動、またはメンテナンス等に入るためオフラインになります", color=0x00ccff)
+            embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
+            embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
+            embed = embed.set_footer(text="強制再起動などでお知らせできない場合もあるよ")
+            await message.channnel.send(embed=embed)
     else:
         #print(message.content)
         print(message.author.id)
