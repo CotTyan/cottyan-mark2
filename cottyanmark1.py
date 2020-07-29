@@ -4,13 +4,11 @@ import discord
 import subprocess
 import os
 TOKEN = ""
-entry_id = 736628061289578496
-server_id = 736622331178254426
-hello_id = 737068025253200069
+
+server_id = 665189315877535753
 
 server_id = int(server_id)
-entry_id = int(entry_id)
-hello_id = int(hello_id)
+
 client = discord.Client()
 
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
@@ -25,13 +23,13 @@ async def on_message(message):
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
-        await channel.send(embed=embed)
+        await message.channel.send(embed=embed)
     if message.content == '*cot.about!':
         embed = discord.Embed(title="CotTyanについて", description="Laminne33569がコマンド部分をPython、コマンド実行部分をRubyで書いたボットです\n仕組みとしてはコマンドを取得し\nRubyのコードを実行、出力の成形を行い、\nそれをPythonで受け取り送信しています\nデプロイ先はVPSですのでいろいろできます", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_footer(text="ちゃんと自己紹介できるもん！")
-        await channel.send(embed=embed)
+        await message.channel.send(embed=embed)
     if message.content == '*cot.daemon.time!':
         ruby = subprocess.check_output(['/root/.rbenv/shims/ruby', '/root/cottyan-mark2/main.rb'])
         m = ruby.decode()
