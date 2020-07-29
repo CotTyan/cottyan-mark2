@@ -13,6 +13,14 @@ client = discord.Client()
 
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
  
+@client.event
+async def on_message(command):
+    if command.author.bot:
+        return
+    if command.author == "laminne#8098" and command.content == "*cot.develop!":
+        a = command.author
+        print(a)
+        await command.channel.send("test")
 
 @client.event
 async def on_message(message):

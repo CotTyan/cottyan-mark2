@@ -37,6 +37,14 @@ async def on_member_join(member):
     channel = client.get_channel(737576896476348447)
     await channel.send(m)
     
+@client.event
+async def on_message(command):
+    if command.author.bot:
+        return
+    else
+        a = command.author
+        print(a)
+
 
 @client.event
 async def on_message(message):
