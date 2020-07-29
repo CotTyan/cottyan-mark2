@@ -3,7 +3,6 @@ import asyncio
 import discord
 import subprocess
 import os
-TOKEN = ""
 entry_id = 736628061289578496
 server_id = 736622331178254426
 hello_id = 737068025253200069

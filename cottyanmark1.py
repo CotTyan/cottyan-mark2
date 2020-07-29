@@ -3,7 +3,6 @@ import asyncio
 import discord
 import subprocess
 import os
-TOKEN = ""
 
 server_id = 665189315877535753
 
@@ -17,10 +16,7 @@ async def send(channel,*args, **kwargs): return await channel.send(*args, **kwar
 async def on_message(command):
     if command.author.bot:
         return
-    if command.author == "laminne#8098" and command.content == "*cot.develop!":
-        a = command.author
-        print(a)
-        await command.channel.send("test")
+
 
 @client.event
 async def on_message(message):
@@ -43,6 +39,15 @@ async def on_message(message):
         m = ruby.decode()
         ruby = m.replace('"','')
         await message.channel.send(ruby.replace('"',''))
+    if message.author.id == 487393376078004225:
+        if message.content == "*cot.develop!":
+            #a = message.author
+            #print(a)
+            await message.channel.send("test")
+    else:
+        #print(message.content)
+        print(message.author.id)
+        print("fail")
 
 if __name__ == "__main__":
     client.run(os.environ['MARK1_TOKEN'])
