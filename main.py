@@ -16,14 +16,14 @@ async def send(channel,*args, **kwargs): return await channel.send(*args, **kwar
 
 @client.event
 async def on_ready():
-    print(client.user.id)
-    print('It is ready')
-    channel = client.get_channel(hello_id)
-    embed = discord.Embed(title="ただ今起動しました",description="動作していない場合は管理者に問い合わせてください", color=0x00ccff)
-    embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
-    embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
-    embed = embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
-    await channel.send(embed=embed)
+    # print(client.user.id)
+    # print('It is ready')
+    # channel = client.get_channel(hello_id)
+    # embed = discord.Embed(title="ただ今起動しました",description="動作していない場合は管理者に問い合わせてください", color=0x00ccff)
+    # embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
+    # embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
+    # embed = embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
+    # await channel.send(embed=embed)
     
 @client.event
 async def on_member_join(member):
