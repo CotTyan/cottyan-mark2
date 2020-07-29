@@ -25,7 +25,7 @@ async def on_message(message):
         embed = embed.set_footer(text="ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)")
         await message.channel.send(embed=embed)
     if message.content == '*cot.about!':
-        embed = discord.Embed(title="CotTyanについて", description="Laminne33569がコマンド部分をPython、コマンド実行部分をRubyで書いたボットです\n仕組みとしてはコマンドを取得し\nRubyのコードを実行、出力の成形を行い、\nそれをPythonで受け取り送信しています\nデプロイ先はVPSですのでいろいろできます", color=0x00ccff)
+        embed = discord.Embed(title="CotTyanについて", description="Laminne33569がコマンド部分をPython、実行部分(ほんの一部)をRubyで書いたボットです\n仕組みとしてはコマンドを取得し\nRubyのコードを実行、出力の成形を行い、\nそれをPythonで受け取り送信しています\nデプロイ先はVPSですのでいろいろできます", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_footer(text="ちゃんと自己紹介できるもん！")
@@ -37,4 +37,4 @@ async def on_message(message):
         await message.channel.send(ruby.replace('"',''))
 
 if __name__ == "__main__":
-    client.run(TOKEN)
+    client.run(os.environ['MARK1_TOKEN'])

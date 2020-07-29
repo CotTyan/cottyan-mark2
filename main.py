@@ -69,9 +69,9 @@ async def on_message(message):
                     return
             role = discord.utils.get(message.guild.roles, name="自己紹介してね")
             return await message.author.add_roles(role)
-            m = "<@"+str(member.id)+">,\nPlease introduse yourself in <#736627134604378143>.\n"
+            message_to = "<@"+str(member.id)+">,\nPlease introduse yourself in <#736627134604378143>.\n"
             channel = client.get_channel(737576896476348447)
-            await channel.send(m)
+            return await channel.send(message_to)
 
 if __name__ == "__main__":
     client.run(TOKEN)
