@@ -13,10 +13,6 @@ client = discord.Client()
 async def send(channel,*args, **kwargs): return await channel.send(*args, **kwargs)
  
 @client.event
-async def on_ready():
-    subprocess.check_output(['python3.8', 'run.py'])
-
-@client.event
 async def on_message(message):
     if message.author.bot:
         return
