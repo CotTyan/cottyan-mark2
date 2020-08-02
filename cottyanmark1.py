@@ -18,7 +18,7 @@ async def on_message(message):
         return
     if message.content == '*cot.help!':
         help = random.choice('ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)', 'ちゃんと動作してる、よね？', 'おしごとおしごと！', 'ねぇねぇ、きいてきいて？', 'あのねあのね？')
-        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 `*cot.help!`\nボットについての情報を見る`*cot.about!`\n現在時刻を表示[Ruby]`*cot.daemon.time!`\nメンテナンス通知を出す`*cot.develop!`\n※<@487393376078004225>にしか使えません\n機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
+        embed = discord.Embed(title="CotTyanへるぷ", description="このヘルプを表示 `*cot.help!`\nボットについての情報を見る`*cot.about!`\n現在時刻を表示[Ruby]`*cot.daemon.time!`\nGitHubに登録されているユーザーのGPG公開鍵を取得`*gpg`\n※GPGの長さが2000文字以上の場合は表示できません\nメンテナンス通知を出す`*cot.develop!`\n※メンテナンス通知は<@487393376078004225>にしか使えません\n機能追加はまだまだこれからですので気を長くしてお待ちください", color=0x00ccff)
         embed = embed.set_author(name="COTTYAN MARK II by laminne", url="https://github.com/laminne", icon_url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_thumbnail(url="https://www.repo.approvers.dev/g2058.png")
         embed = embed.set_footer(text=help)
