@@ -30,10 +30,14 @@ async def on_message(message):
     url = url + ".gpg"
     print(url)
     res = requests.get(url)
-    f = open("upload.gpg", "w")
-    f.write(res)
+    print(res.text)
+    name = search + ".gpg"
+    f = open(name, "w")
+    f.write(res.text)
     f.close()
-    await client.send_file(message.channel,"./upload.gpg")
+    await message.channel.send(file=discord.File(name))
+    os.remove(name)
+
 
 
 client.run("")
