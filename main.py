@@ -17,6 +17,7 @@ async def send(channel,*args, **kwargs): return await channel.send(*args, **kwar
 @client.event
 async def on_ready():
     # print(client.user.id)
+    await client.change_presence(activity=discord.Game(name='権限付与準備完了....'))
     # print('It is ready')
     # channel = client.get_channel(hello_id)
     # embed = discord.Embed(title="ただ今起動しました",description="動作していない場合は管理者に問い合わせてください", color=0x00ccff)
