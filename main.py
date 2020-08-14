@@ -75,11 +75,11 @@ async def on_message(message):
                 lrn.append(role.name)
                 if len(lrn) == 2:
                     return
-            role = discord.utils.get(message.guild.roles, name="自己紹介してね")
-            return await message.author.add_roles(role)
             message_to = "<@"+str(member.id)+">,\nPlease introduse yourself in <#736627134604378143>.\n"
             channel = client.get_channel(737576896476348447)
             return await channel.send(message_to)
+            role = discord.utils.get(message.guild.roles, name="自己紹介してね")
+            return await message.author.add_roles(role)
 
 if __name__ == "__main__":
     client.run(os.environ['MARK1_TOKEN'])

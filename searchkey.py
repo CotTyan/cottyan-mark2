@@ -24,19 +24,23 @@ async def on_message(message):
     count = 0
     print(search)
     search = str(search)
+    search = search.lower()
     baseurl = "https://github.com/"
     # username = search + ".gpg"
     url = urljoin("https://github.com/", search)
     url = url + ".gpg"
     print(url)
     res = requests.get(url)
-    print(res.text)
-    name = search + ".gpg"
-    f = open(name, "w")
-    f.write(res.text)
-    f.close()
-    await message.channel.send(file=discord.File(name))
-    os.remove(name)
+    if res.status_code == requests.codes.ok:
+        print(res.text)
+        name = search + ".gpg"
+        f = open(name, "w")
+        f.write(res.text)
+        f.close()
+        await message.channel.send(file=discord.File(name))
+        os.remove(name)
+    else:
+        await message.channel.send("ユーザーが存在しませんでした\nもう一度やり直してください")
 
 
 

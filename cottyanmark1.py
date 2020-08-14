@@ -37,8 +37,6 @@ async def on_message(message):
         await message.channel.send(ruby.replace('"',''))
     if message.author.id == 487393376078004225:
         if message.content == "*cot.develop!":
-            #a = message.author
-            #print(a)
             text = random.choice('ふぇぇ、恥ずかしいよぅ(*ﾉωﾉ)', 'ちゃんと動作してる、よね？', 'おしごとおしごと！', 'ねぇねぇ、きいてきいて？', 'あのねあのね？')
             embed = discord.Embed(title="ボットが止まります",description="ボットが再起動、またはメンテナンス等に入るためオフラインになります", color=0x00ccff)
             embed = embed.set_author(name="CotTyanからのお知らせ",icon_url="https://www.repo.approvers.dev/g2058.png")
@@ -46,7 +44,6 @@ async def on_message(message):
             embed = embed.set_footer(text=text)
             await message.channnel.send(embed=embed)
     else:
-        #print(message.content)
         print(message.author.id)
         print("fail")
 
